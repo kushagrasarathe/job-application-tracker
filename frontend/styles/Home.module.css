@@ -22,21 +22,21 @@
   padding: 0 2rem;
   background-color: rgb(255, 255, 255);
   z-index: 100;
-/* 
+  /* 
   filter: blur(1px);
   -webkit-filter: blur(1px); */
 
   background: rgba(30, 28, 28, 0.2);
-  backdrop-filter: blur(5px); 
-  
+  backdrop-filter: blur(5px);
+
+  box-shadow: rgba(161, 162, 164, 0.3) 0px 1px 2px 0px,
+    rgba(109, 111, 112, 0.15) 0px 2px 6px 2px;
   /* backdrop-filter: blur(2px); */
   /* color: #222; */
-  
 }
 
 .navbar * {
   cursor: pointer;
-
 }
 
 .navlink {
@@ -48,7 +48,6 @@
 .navlink li {
   margin: 0 1rem;
 }
-
 
 .footer {
   display: flex;

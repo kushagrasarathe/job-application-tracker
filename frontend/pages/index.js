@@ -1,8 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useState } from "react";
+import NewEntry from "../src/components/NewEntry";
 
 export default function Home() {
+
+  const[toggle, setToggle] = useState(false);
+
+  function toggleView() {
+    setToggle(!toggle);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +22,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1>Welcome !!!</h1>
+        <button onClick={toggleView}>Track New Application</button>
+        {
+          toggle ? <NewEntry /> : ''
+        }
       </main>
 
     </div>
