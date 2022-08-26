@@ -49,6 +49,14 @@
   margin: 0 1rem;
 }
 
+.visible {
+  margin:15px auto;
+}
+
+.hide {
+  display: none;
+}
+
 .footer {
   display: flex;
   flex: 1;

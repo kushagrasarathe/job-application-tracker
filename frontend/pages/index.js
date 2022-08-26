@@ -23,9 +23,12 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Welcome !!!</h1>
         <button onClick={toggleView}>Track New Application</button>
-        {
+        {/* {
           toggle ? <NewEntry /> : ''
-        }
+        } */}
+        <div className={ toggle ? styles.visible : styles.hide }>
+          <NewEntry/>
+        </div>
       </main>
 
     </div>
