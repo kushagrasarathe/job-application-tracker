@@ -6,9 +6,11 @@ export default function NewEntry() {
     <div className={styles.track_new}>
         <label htmlFor="">Company Name</label>
         <input type="text" />
-        <label htmlFor="">Job Title</label>
+        <label htmlFor="">Contact Person</label>
         <input type="text" />
         <label htmlFor="">Date Applied</label>
+        <input type="text" />
+        <label htmlFor="">Job Title</label>
         <input type="text" />
         <label htmlFor="">Job Post Link</label>
         <input type="text" />
@@ -18,6 +20,7 @@ export default function NewEntry() {
         <input type="text"/>
         
         <button>Add</button>
+        <button>Archive</button>
     </div>
   )
 }
