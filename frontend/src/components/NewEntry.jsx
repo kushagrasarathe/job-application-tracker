@@ -9,6 +9,14 @@ export default function NewEntry() {
         <label htmlFor="">Job Title</label>
         <input type="text" />
         <label htmlFor="">Date Applied</label>
+        <input type="text" />
+        <label htmlFor="">Job Post Link</label>
+        <input type="text" />
+        <label htmlFor="">Status</label>
+         Pending<input type="checkbox"/>
+        <label htmlFor="">Next</label>
+        <input type="text"/>
+        
         <button>Add</button>
     </div>
   )
