@@ -28,7 +28,7 @@ export default function NewEntry() {
     });
 
     const data = await response.json();
-    console.log(data)
+    // console.log(data)
   }
 
   return (
@@ -108,6 +108,7 @@ export default function NewEntry() {
         <button className={styles.button} onClick={saveData}>
           Save
         </button>
+
       </div>
       {/* </div> */}
     </>

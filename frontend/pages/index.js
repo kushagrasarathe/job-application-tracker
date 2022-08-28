@@ -5,25 +5,27 @@ import { useEffect, useState } from "react";
 import NewEntry from "../src/components/NewEntry";
 import ApplicationCard from "../src/components/ApplicationCard";
 
-
-
 export default function Home() {
   const [toggle, setToggle] = useState(false);
-  const [fetchComments, setFetchComments] = useState([]);
+  const [fetchApplication, setFetchApplication] = useState([]);
 
   function toggleView() {
     setToggle(!toggle);
   }
 
+  // console.log(fetchApplication);
 
- useEffect( () => {
+
+  useEffect( () =>
+
     async function fetchData() {
-    const response = await('/api/save');
-    const data = await response.json()
-    setFetchComments(data);
-    console.log(data)
-  } 
- })
+      const response = await fetch("/api/save");
+      const data = await response.json();
+      setFetchApplication(data);
+      console.log(data);
+    }
+    )
+
 
   return (
     <div className={styles.container}>
@@ -38,17 +40,19 @@ export default function Home() {
         {/* {
           toggle ? <NewEntry /> : ''
         } */}
-          <h2>Create New</h2>
+        <h2>Create New</h2>
         <div className={styles.new}>
-          <button className={styles.button} onClick={toggleView}>Track New Application</button>
+          <button className={styles.button} onClick={toggleView}>
+            Track New Application
+          </button>
           <div className={toggle ? styles.visible : styles.hide}>
             <NewEntry />
           </div>
         </div>
 
-          <h2>Saved Applications</h2>
+        <h2>Saved Applications</h2>
         <div className={styles.entry}>
-          <ApplicationCard
+          {/* <ApplicationCard
             company={"Google"}
             job_title={"Frontend Intern"}
             contact_person={"Bob & Alice"}
@@ -56,16 +60,24 @@ export default function Home() {
             link={"https://google.com"}
             remark={"Be Confident while presenting yourself"}
             status={"Pending"}
-          />
-          <ApplicationCard
-            company={"Google"}
-            job_title={"Frontend Intern"}
-            contact_person={"Bob & Alice"}
-            date={"12/12/2022"}
-            link={"https://google.com"}
-            remark={"Be Confident while presenting yourself"}
-            status={"Pending"}
-          />
+          /> */}
+
+         
+
+          {fetchApplication.map((item) => {
+            return (
+              <ApplicationCard
+                id={item.id}
+                company={item.company}
+                job_title={item.job_title}
+                contact_person={item.contact_person}
+                date={item.date}
+                link={item.link}
+                remark={item.remark}
+                status={item.status}
+              />
+            );
+          })}
         </div>
       </main>
     </div>
