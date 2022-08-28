@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import NewEntry from "../src/components/NewEntry";
+import ApplicationCard from "../src/components/ApplicationCard";
 
 export default function Home() {
-
-  const[toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   function toggleView() {
     setToggle(!toggle);
@@ -22,15 +22,39 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1>Welcome !!!</h1>
-        <button onClick={toggleView}>Track New Application</button>
         {/* {
           toggle ? <NewEntry /> : ''
         } */}
-        <div className={ toggle ? styles.visible : styles.hide }>
-          <NewEntry/>
+          <h2>Save New</h2>
+        <div className={styles.new}>
+          <button onClick={toggleView}>Track New Application</button>
+          <div className={toggle ? styles.visible : styles.hide}>
+            <NewEntry />
+          </div>
+        </div>
+
+          <h2>Saved Applications</h2>
+        <div className={styles.entry}>
+          <ApplicationCard
+            company={"Google"}
+            job_title={"Frontend Intern"}
+            contact_person={"Bob & Alice"}
+            date={"12/12/2022"}
+            link={"https://google.com"}
+            remark={"Be Confident while presenting yourself"}
+            status={"Pending"}
+          />
+          <ApplicationCard
+            company={"Google"}
+            job_title={"Frontend Intern"}
+            contact_person={"Bob & Alice"}
+            date={"12/12/2022"}
+            link={"https://google.com"}
+            remark={"Be Confident while presenting yourself"}
+            status={"Pending"}
+          />
         </div>
       </main>
-
     </div>
   );
 }

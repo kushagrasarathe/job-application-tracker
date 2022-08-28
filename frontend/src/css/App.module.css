@@ -4,4 +4,31 @@
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    margin: 20px 15px;
+
+    /* width: 600px;
+    max-width: 80%; */
+
+    border: 2px solid rgb(137, 144, 163);
+    border-radius: 15px;
+    padding: 1.5rem 2.5rem;
+}
+
+.track_new *{
+    margin: 5px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    border: 2px solid rgb(137, 144, 163);
+    border-radius: 15px;
+    padding: 1.5rem 2.5rem;
+    margin: 10px 15px;
+    /* max-width: 400px; */
 }

@@ -35,6 +35,14 @@
   /* color: #222; */
 }
 
+.entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
 .navbar * {
   cursor: pointer;
 }
@@ -50,7 +58,18 @@
 }
 
 .visible {
-  margin:15px auto;
+  /* margin:15px auto; */
+  display: flex;
+}
+
+.new {
+  /* margin-right: auto; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .hide {
