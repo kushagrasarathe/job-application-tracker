@@ -17,13 +17,12 @@ export default function Home() {
 
 
   useEffect( () =>
-
     async function fetchData() {
       const response = await fetch("/api/save");
       const data = await response.json();
       setFetchApplication(data);
       console.log(data);
-    }
+    }, []
     )
 
 
