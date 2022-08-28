@@ -8,12 +8,12 @@ export default function Layout({ children }) {
         <div>
           <h2>Job Application Tracker</h2>
         </div>
-        <div>
+        {/* <div>
             <ul className={styles.navlink}>
                 <li>Home</li>
                 <li>Account</li>
             </ul>
-        </div>
+        </div> */}
       </nav>
       {children}
       <footer className={styles.footer}>

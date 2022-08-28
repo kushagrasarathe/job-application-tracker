@@ -1,16 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewEntry from "../src/components/NewEntry";
 import ApplicationCard from "../src/components/ApplicationCard";
 
+
+
 export default function Home() {
   const [toggle, setToggle] = useState(false);
+  const [fetchComments, setFetchComments] = useState([]);
 
   function toggleView() {
     setToggle(!toggle);
   }
+
+
+ useEffect( () => {
+    async function fetchData() {
+    const response = await('/api/save');
+    const data = await response.json()
+    setFetchComments(data);
+    console.log(data)
+  } 
+ })
 
   return (
     <div className={styles.container}>
@@ -25,9 +38,9 @@ export default function Home() {
         {/* {
           toggle ? <NewEntry /> : ''
         } */}
-          <h2>Save New</h2>
+          <h2>Create New</h2>
         <div className={styles.new}>
-          <button onClick={toggleView}>Track New Application</button>
+          <button className={styles.button} onClick={toggleView}>Track New Application</button>
           <div className={toggle ? styles.visible : styles.hide}>
             <NewEntry />
           </div>
