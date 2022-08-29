@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../css/App.module.css";
 
 export default function NewEntry() {
@@ -20,11 +20,11 @@ export default function NewEntry() {
         remark,
         link,
         date,
-        status
+        status,
       }),
       headers: {
-        'Content-type': 'application/json'
-      }
+        "Content-type": "application/json",
+      },
     });
 
     const data = await response.json();
@@ -108,7 +108,6 @@ export default function NewEntry() {
         <button className={styles.button} onClick={saveData}>
           Save
         </button>
-
       </div>
       {/* </div> */}
     </>

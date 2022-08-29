@@ -13,18 +13,30 @@ export default function Home() {
     setToggle(!toggle);
   }
 
-  // console.log(fetchApplication);
+  // useEffect(() => {
+  //     if (typeof window !== 'undefined') {
+  //   const item = localStorage.getItem('data')
+  //   console.log(item)
+  // }
+
+  // }, []);
 
 
-  useEffect( () =>
-    async function fetchData() {
-      const response = await fetch("/api/save");
-      const data = await response.json();
-      setFetchApplication(data);
-      console.log(data);
-    }, []
-    )
 
+  useEffect(() => {
+    JSON.parse(localStorage.getItem('data'));
+  }, []);
+
+  useEffect(
+    () =>
+      async function fetchData() {
+        const response = await fetch("/api/save");
+        const data = await response.json();
+        setFetchApplication(data);
+        console.log(data);
+      },
+    []
+  );
 
   return (
     <div className={styles.container}>
@@ -51,30 +63,20 @@ export default function Home() {
 
         <h2>Saved Applications</h2>
         <div className={styles.entry}>
-          {/* <ApplicationCard
-            company={"Google"}
-            job_title={"Frontend Intern"}
-            contact_person={"Bob & Alice"}
-            date={"12/12/2022"}
-            link={"https://google.com"}
-            remark={"Be Confident while presenting yourself"}
-            status={"Pending"}
-          /> */}
-
-         
-
           {fetchApplication.map((item) => {
             return (
-              <ApplicationCard
-                id={item.id}
-                company={item.company}
-                job_title={item.job_title}
-                contact_person={item.contact_person}
-                date={item.date}
-                link={item.link}
-                remark={item.remark}
-                status={item.status}
-              />
+
+                <ApplicationCard
+                  key={item.id}
+                  company={item.company}
+                  job_title={item.job_title}
+                  contact_person={item.contact_person}
+                  date={item.date}
+                  link={item.link}
+                  remark={item.remark}
+                  status={item.status}
+                />
+
             );
           })}
         </div>
