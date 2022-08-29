@@ -21,11 +21,12 @@ export default function Home() {
 
   // }, []);
 
+  const [todo, setTodo] = useState([]);
+  const [input, setInput] = useState("");
 
-
-  useEffect(() => {
-    JSON.parse(localStorage.getItem('data'));
-  }, []);
+  // useEffect(() => {
+  //   JSON.parse(localStorage.getItem('data'));
+  // }, []);
 
   useEffect(
     () =>
@@ -37,6 +38,15 @@ export default function Home() {
       },
     []
   );
+
+  useEffect(() => {
+    const _data = JSON.parse(localStorage.getItem("data"));
+    setFetchApplication(_data);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(fetchApplication));
+  }, [fetchApplication]);
 
   return (
     <div className={styles.container}>
@@ -65,18 +75,16 @@ export default function Home() {
         <div className={styles.entry}>
           {fetchApplication.map((item) => {
             return (
-
-                <ApplicationCard
-                  key={item.id}
-                  company={item.company}
-                  job_title={item.job_title}
-                  contact_person={item.contact_person}
-                  date={item.date}
-                  link={item.link}
-                  remark={item.remark}
-                  status={item.status}
-                />
-
+              <ApplicationCard
+                key={item.id}
+                company={item.company}
+                job_title={item.job_title}
+                contact_person={item.contact_person}
+                date={item.date}
+                link={item.link}
+                remark={item.remark}
+                status={item.status}
+              />
             );
           })}
         </div>
